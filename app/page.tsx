@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const services = [
   { icon: "▦", slug: "managed-it-michigan", title: "Managed IT Services", copy: "Complete, proactive technology support with predictable pricing and a team that knows your business." },
@@ -54,7 +55,7 @@ export default function Home() {
         <div className="sectionLead"><p className="eyebrow orange">WHAT WE OFFER</p><h2>Serious technology expertise.<br/>Refreshingly simple service.</h2></div>
         <div className="introCopy"><p>From daily support to long-term technology planning, we give Michigan organizations one accountable team for the systems that matter most.</p><a href="#contact">TALK TO AN EXPERT →</a></div>
         <div className="serviceGrid">
-          {services.map((s) => <article className="serviceCard" key={s.title}><span className="serviceIcon">{s.icon}</span><h3>{s.title}</h3><p>{s.copy}</p><a href={`/services/${s.slug}`} aria-label={`Learn about ${s.title}`}>LEARN MORE <b>→</b></a></article>)}
+          {services.map((s) => <article className="serviceCard" key={s.title}><span className="serviceIcon">{s.icon}</span><h3>{s.title}</h3><p>{s.copy}</p><Link href={`/services/${s.slug}`} aria-label={`Learn about ${s.title}`}>LEARN MORE <b>→</b></Link></article>)}
         </div>
       </section>
 
@@ -79,7 +80,7 @@ export default function Home() {
 
       <section className="cta" id="contact"><p className="eyebrow">GET STARTED TODAY</p><h2>Ready for technology that simply works?</h2><p>Tell us what’s getting in the way. We’ll help you find a clear, practical next step.</p><a className="button light" href="mailto:hello@northlinetechnology.com">SCHEDULE A CONVERSATION <b>→</b></a></section>
 
-      <footer><div className="footerBrand"><a className="brand" href="#top"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><p>Michigan-based managed technology services focused on clear outcomes, resilient systems, and dependable support.</p></div><div><b>SERVICES</b><a href="/services/managed-it-michigan">Managed IT</a><a href="/services/cybersecurity-michigan">Cybersecurity</a><a href="/services/cloud-migration-michigan">Cloud & Infrastructure</a><a href="/services/voice-collaboration-michigan">Voice & Collaboration</a></div><div><b>COMPANY</b><a href="#why">Why Northline</a><a href="#insights">Insights</a><a href="#contact">Contact</a></div><div><b>CONTACT</b><a href="mailto:hello@northlinetechnology.com">hello@northlinetechnology.com</a><span>Serving businesses across Michigan</span></div><p className="copyright">© 2026 Northline Technology. All rights reserved.</p></footer>
+      <footer><div className="footerBrand"><a className="brand" href="#top"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><p>Michigan-based managed technology services focused on clear outcomes, resilient systems, and dependable support.</p></div><div><b>SERVICES</b><Link href="/services/managed-it-michigan">Managed IT</Link><Link href="/services/cybersecurity-michigan">Cybersecurity</Link><Link href="/services/cloud-migration-michigan">Cloud & Infrastructure</Link><Link href="/services/voice-collaboration-michigan">Voice & Collaboration</Link></div><div><b>COMPANY</b><a href="#why">Why Northline</a><a href="#insights">Insights</a><a href="#contact">Contact</a></div><div><b>CONTACT</b><a href="mailto:hello@northlinetechnology.com">hello@northlinetechnology.com</a><span>Serving businesses across Michigan</span></div><p className="copyright">© 2026 Northline Technology. All rights reserved.</p></footer>
     </main>
   );
 }
