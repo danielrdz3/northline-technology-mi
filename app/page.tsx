@@ -3,12 +3,12 @@
 import { useState } from "react";
 
 const services = [
-  { icon: "▦", title: "Managed IT Services", copy: "Complete, proactive technology support with predictable pricing and a team that knows your business." },
-  { icon: "☁", title: "Cloud Migration", copy: "A clear path to the cloud, planned and managed end-to-end without disrupting your work." },
-  { icon: "⌾", title: "Cybersecurity", copy: "Layered protection, 24/7 monitoring, and practical guidance that keeps risk under control." },
-  { icon: "↻", title: "Backup & Recovery", copy: "Resilient backups and rapid recovery plans designed to keep your organization moving." },
-  { icon: "◉", title: "Help Desk Support", copy: "Friendly, responsive support from experienced engineers—whenever your people need it." },
-  { icon: "◖", title: "Voice & Collaboration", copy: "Modern cloud calling, meetings, and collaboration tools that connect every team." },
+  { icon: "▦", slug: "managed-it-michigan", title: "Managed IT Services", copy: "Complete, proactive technology support with predictable pricing and a team that knows your business." },
+  { icon: "☁", slug: "cloud-migration-michigan", title: "Cloud Migration", copy: "A clear path to the cloud, planned and managed end-to-end without disrupting your work." },
+  { icon: "⌾", slug: "cybersecurity-michigan", title: "Cybersecurity", copy: "Layered protection, 24/7 monitoring, and practical guidance that keeps risk under control." },
+  { icon: "↻", slug: "backup-recovery-michigan", title: "Backup & Recovery", copy: "Resilient backups and rapid recovery plans designed to keep your organization moving." },
+  { icon: "◉", slug: "help-desk-michigan", title: "Help Desk Support", copy: "Friendly, responsive support from experienced engineers—whenever your people need it." },
+  { icon: "◖", slug: "voice-collaboration-michigan", title: "Voice & Collaboration", copy: "Modern cloud calling, meetings, and collaboration tools that connect every team." },
 ];
 
 const faqs = [
@@ -37,7 +37,7 @@ export default function Home() {
         <div className="heroGlow" />
         <div className="heroContent">
           <p className="eyebrow">MICHIGAN MANAGED IT SERVICES</p>
-          <h1>Technology that<br/><span>moves business forward.</span></h1>
+          <h1>Managed IT Services in Michigan</h1>
           <p className="heroCopy">We measure IT success by business outcomes—not technical metrics. Productive employees, reliable systems, managed risk, and confident decisions are the real scorecard.</p>
           <div className="actions"><a className="button primary" href="#contact">TALK TO AN EXPERT <b>→</b></a><a className="button ghost" href="#services">EXPLORE SERVICES</a></div>
         </div>
@@ -54,7 +54,7 @@ export default function Home() {
         <div className="sectionLead"><p className="eyebrow orange">WHAT WE OFFER</p><h2>Serious technology expertise.<br/>Refreshingly simple service.</h2></div>
         <div className="introCopy"><p>From daily support to long-term technology planning, we give Michigan organizations one accountable team for the systems that matter most.</p><a href="#contact">TALK TO AN EXPERT →</a></div>
         <div className="serviceGrid">
-          {services.map((s) => <article className="serviceCard" key={s.title}><span className="serviceIcon">{s.icon}</span><h3>{s.title}</h3><p>{s.copy}</p><a href="#contact" aria-label={`Learn about ${s.title}`}>LEARN MORE <b>→</b></a></article>)}
+          {services.map((s) => <article className="serviceCard" key={s.title}><span className="serviceIcon">{s.icon}</span><h3>{s.title}</h3><p>{s.copy}</p><a href={`/services/${s.slug}`} aria-label={`Learn about ${s.title}`}>LEARN MORE <b>→</b></a></article>)}
         </div>
       </section>
 
@@ -67,7 +67,7 @@ export default function Home() {
 
       <section className="numbers" id="security"><div><strong>99.9%</strong><span>CLIENT UPTIME TARGET</span></div><div><strong>&lt;15m</strong><span>PRIORITY RESPONSE GOAL</span></div><div><strong>24/7</strong><span>MONITORING & ALERTING</span></div><div><strong>1</strong><span>ACCOUNTABLE PARTNER</span></div></section>
 
-      <section className="section testimonial"><p className="eyebrow orange">CLIENT EXPERIENCE</p><blockquote>“Northline made technology feel manageable again. Their team communicates clearly, solves problems quickly, and always connects the work back to our business.”</blockquote><p className="attribution"><b>OPERATIONS DIRECTOR</b><span>Michigan professional services firm</span></p></section>
+      <section className="section testimonial"><p className="eyebrow orange">CLIENT EXPERIENCE</p><h2>Trusted by Michigan business leaders</h2><blockquote>“Northline made technology feel manageable again. Their team communicates clearly, solves problems quickly, and always connects the work back to our business.”</blockquote><p className="attribution"><b>OPERATIONS DIRECTOR</b><span>Michigan professional services firm</span></p></section>
 
       <section className="section insights" id="insights"><div className="sectionHeader"><div><p className="eyebrow orange">PRACTICAL INSIGHTS</p><h2>Ideas for a more resilient business</h2></div><a href="#contact">VIEW ALL ARTICLES →</a></div><div className="articleGrid">
         <article><div className="articleImage cloud"/><p>STRATEGY · 7 MIN READ</p><h3>How to build a technology roadmap people can actually use</h3><a href="#contact">READ ARTICLE →</a></article>
@@ -75,11 +75,11 @@ export default function Home() {
         <article><div className="articleImage hybrid"/><p>CLOUD · 6 MIN READ</p><h3>When a hybrid cloud approach makes business sense</h3><a href="#contact">READ ARTICLE →</a></article>
       </div></section>
 
-      <section className="section faq"><div><p className="eyebrow orange">MANAGED IT FAQ</p><h2>Clear answers for Michigan businesses</h2><p>What leaders typically ask when comparing support models, cybersecurity, and long-term technology partners.</p></div><div className="faqList">{faqs.map(([q,a], i) => <article key={q} className={openFaq === i ? "faqItem open" : "faqItem"}><button onClick={() => setOpenFaq(openFaq === i ? null : i)}><span>{String(i+1).padStart(2,"0")}</span>{q}<b>{openFaq === i ? "−" : "+"}</b></button><p>{a}</p></article>)}</div></section>
+      <section className="section faq"><div><p className="eyebrow orange">MANAGED IT FAQ</p><h2>Managed IT questions from Michigan businesses</h2><p>What leaders typically ask when comparing support models, cybersecurity, and long-term technology partners.</p></div><div className="faqList">{faqs.map(([q,a], i) => <article key={q} className={openFaq === i ? "faqItem open" : "faqItem"}><button onClick={() => setOpenFaq(openFaq === i ? null : i)}><span>{String(i+1).padStart(2,"0")}</span><h3>{q}</h3><b>{openFaq === i ? "−" : "+"}</b></button><p>{a}</p></article>)}</div></section>
 
       <section className="cta" id="contact"><p className="eyebrow">GET STARTED TODAY</p><h2>Ready for technology that simply works?</h2><p>Tell us what’s getting in the way. We’ll help you find a clear, practical next step.</p><a className="button light" href="mailto:hello@northlinetechnology.com">SCHEDULE A CONVERSATION <b>→</b></a></section>
 
-      <footer><div className="footerBrand"><a className="brand" href="#top"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><p>Michigan-based managed technology services focused on clear outcomes, resilient systems, and dependable support.</p></div><div><b>SERVICES</b><a href="#services">Managed IT</a><a href="#security">Cybersecurity</a><a href="#services">Cloud & Infrastructure</a><a href="#services">Voice & Collaboration</a></div><div><b>COMPANY</b><a href="#why">Why Northline</a><a href="#insights">Insights</a><a href="#contact">Contact</a></div><div><b>CONTACT</b><a href="mailto:hello@northlinetechnology.com">hello@northlinetechnology.com</a><span>Serving businesses across Michigan</span></div><p className="copyright">© 2026 Northline Technology. All rights reserved.</p></footer>
+      <footer><div className="footerBrand"><a className="brand" href="#top"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><p>Michigan-based managed technology services focused on clear outcomes, resilient systems, and dependable support.</p></div><div><b>SERVICES</b><a href="/services/managed-it-michigan">Managed IT</a><a href="/services/cybersecurity-michigan">Cybersecurity</a><a href="/services/cloud-migration-michigan">Cloud & Infrastructure</a><a href="/services/voice-collaboration-michigan">Voice & Collaboration</a></div><div><b>COMPANY</b><a href="#why">Why Northline</a><a href="#insights">Insights</a><a href="#contact">Contact</a></div><div><b>CONTACT</b><a href="mailto:hello@northlinetechnology.com">hello@northlinetechnology.com</a><span>Serving businesses across Michigan</span></div><p className="copyright">© 2026 Northline Technology. All rights reserved.</p></footer>
     </main>
   );
 }
