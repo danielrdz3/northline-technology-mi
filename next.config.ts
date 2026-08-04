@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
         assetPrefix: "/northline-technology-mi",
         images: { unoptimized: true },
         typescript: { ignoreBuildErrors: true },
+        env: { NEXT_PUBLIC_BASE_PATH: "/northline-technology-mi" },
       }
     : {}),
 };
