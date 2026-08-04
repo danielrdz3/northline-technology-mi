@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-const base = "https://northline-technology-mi.d1rk-digglers.chatgpt.site";
+const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://northline-technology-mi.d1rk-digglers.chatgpt.site";
 const serviceSlugs = ["managed-it-michigan", "cloud-migration-michigan", "cybersecurity-michigan", "backup-recovery-michigan", "help-desk-michigan", "voice-collaboration-michigan"];
 
 export default function sitemap(): MetadataRoute.Sitemap {

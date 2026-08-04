@@ -74,7 +74,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; const service = services[slug]; if (!service) notFound();
-  const structuredData = { "@context": "https://schema.org", "@graph": [{ "@type": "Service", name: service.headline, description: service.intro, areaServed: { "@type": "State", name: "Michigan" }, provider: { "@type": "Organization", name: "Northline Technology", url: "https://northline-technology-mi.d1rk-digglers.chatgpt.site" }, url: `https://northline-technology-mi.d1rk-digglers.chatgpt.site/services/${slug}` }, { "@type": "FAQPage", mainEntity: service.faq.map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) }] };
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://northline-technology-mi.d1rk-digglers.chatgpt.site";
+  const structuredData = { "@context": "https://schema.org", "@graph": [{ "@type": "Service", name: service.headline, description: service.intro, areaServed: { "@type": "State", name: "Michigan" }, provider: { "@type": "Organization", name: "Northline Technology", url: siteUrl }, url: `${siteUrl}/services/${slug}` }, { "@type": "FAQPage", mainEntity: service.faq.map((item) => ({ "@type": "Question", name: item.q, acceptedAnswer: { "@type": "Answer", text: item.a } })) }] };
   return <main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
     <header className="header"><a className="brand" href="/" aria-label="Northline Technology home"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><nav className="nav serviceNav" aria-label="Main navigation"><a href="/#services">ALL SERVICES</a><a href="/#why">WHY NORTHLINE</a><a className="navCta" href="#contact">CONTACT US</a></nav></header>
