@@ -8,6 +8,7 @@ const services = [
   { icon: "▦", slug: "managed-it-michigan", title: "Managed IT Services", copy: "Complete, proactive technology support with predictable pricing and a team that knows your business." },
   { icon: "☁", slug: "cloud-migration-michigan", title: "Cloud Migration", copy: "A clear path to the cloud, planned and managed end-to-end without disrupting your work." },
   { icon: "⌾", slug: "cybersecurity-michigan", title: "Cybersecurity", copy: "Layered protection, 24/7 monitoring, and practical guidance that keeps risk under control." },
+  { icon: "◎", slug: "penetration-testing-michigan", title: "Penetration Testing", copy: "Real-world security testing that finds exploitable weaknesses and turns the results into a practical remediation plan." },
   { icon: "↻", slug: "backup-recovery-michigan", title: "Backup & Recovery", copy: "Resilient backups and rapid recovery plans designed to keep your organization moving." },
   { icon: "◉", slug: "help-desk-michigan", title: "Help Desk Support", copy: "Friendly, responsive support from experienced engineers—whenever your people need it." },
   { icon: "◖", slug: "voice-collaboration-michigan", title: "Voice & Collaboration", copy: "Modern cloud calling, meetings, and collaboration tools that connect every team." },
@@ -56,7 +57,7 @@ export default function Home() {
         <div className="sectionLead"><p className="eyebrow orange">WHAT WE OFFER</p><h2>Serious technology expertise.<br/>Refreshingly simple service.</h2></div>
         <div className="introCopy"><p>From daily support to long-term technology planning, we give Michigan organizations one accountable team for the systems that matter most.</p><a href="#contact">TALK TO AN EXPERT →</a></div>
         <div className="serviceGrid">
-          {services.map((s) => <article className="serviceCard" key={s.title}><span className="serviceIcon">{s.icon}</span><h3>{s.title}</h3><p>{s.copy}</p><a href={`${serviceBasePath}/services/${s.slug}`} aria-label={`Learn about ${s.title}`}>LEARN MORE <b>→</b></a></article>)}
+          {services.map((s) => <article className="serviceCard" key={s.title}><span className="serviceIcon">{s.icon}</span><h3>{s.title}</h3><p>{s.copy}</p><a href={`${serviceBasePath}/${s.slug}`} aria-label={`Learn about ${s.title}`}>LEARN MORE <b>→</b></a></article>)}
         </div>
       </section>
 
@@ -81,7 +82,7 @@ export default function Home() {
 
       <section className="cta" id="contact"><p className="eyebrow">GET STARTED TODAY</p><h2>Ready for technology that simply works?</h2><p>Tell us what’s getting in the way. We’ll help you find a clear, practical next step.</p><a className="button light" href="mailto:hello@northlinetechnology.com">SCHEDULE A CONVERSATION <b>→</b></a></section>
 
-      <footer><div className="footerBrand"><a className="brand" href="#top"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><p>Michigan-based managed technology services focused on clear outcomes, resilient systems, and dependable support.</p></div><div><b>SERVICES</b><a href={`${serviceBasePath}/services/managed-it-michigan`}>Managed IT</a><a href={`${serviceBasePath}/services/cybersecurity-michigan`}>Cybersecurity</a><a href={`${serviceBasePath}/services/cloud-migration-michigan`}>Cloud & Infrastructure</a><a href={`${serviceBasePath}/services/voice-collaboration-michigan`}>Voice & Collaboration</a></div><div><b>COMPANY</b><a href="#why">Why Northline</a><a href="#insights">Insights</a><a href="#contact">Contact</a></div><div><b>CONTACT</b><a href="mailto:hello@northlinetechnology.com">hello@northlinetechnology.com</a><span>Serving businesses across Michigan</span></div><p className="copyright">© 2026 Northline Technology. All rights reserved.</p></footer>
+      <footer><div className="footerBrand"><a className="brand" href="#top"><span className="brandMark">N</span><span>NORTHLINE<small>TECHNOLOGY</small></span></a><p>Michigan-based managed technology services focused on clear outcomes, resilient systems, and dependable support.</p></div><div><b>SERVICES</b><a href={`${serviceBasePath}/managed-it-michigan`}>Managed IT</a><a href={`${serviceBasePath}/cybersecurity-michigan`}>Cybersecurity</a><a href={`${serviceBasePath}/penetration-testing-michigan`}>Penetration Testing</a><a href={`${serviceBasePath}/cloud-migration-michigan`}>Cloud & Infrastructure</a></div><div><b>COMPANY</b><a href="#why">Why Northline</a><a href="#insights">Insights</a><a href="#contact">Contact</a></div><div><b>CONTACT</b><a href="mailto:hello@northlinetechnology.com">hello@northlinetechnology.com</a><span>Serving businesses across Michigan</span></div><p className="copyright">© 2026 Northline Technology. All rights reserved.</p></footer>
     </main>
   );
 }
